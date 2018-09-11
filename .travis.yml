@@ -15,5 +15,6 @@ deploy:
   bucket: unavailable.wm.edu
   skip_cleanup: true
   cache_control: "max-age=21600"
+  region: us-east-2
 after_deploy:
   - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
