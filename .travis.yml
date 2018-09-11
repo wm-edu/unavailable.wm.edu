@@ -18,3 +18,5 @@ deploy:
   region: us-east-2
 after_deploy:
   - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+notifications:
+  email: false
