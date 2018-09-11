@@ -5,7 +5,7 @@ cache: pip
 install:
   - pip install awscli
 script:
-  - rm .travis-ci.yml
+  - rm .travis.yml
 deploy:
   on:
     branch: master
