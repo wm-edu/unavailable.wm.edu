@@ -6,6 +6,7 @@ install:
   - pip install awscli
 script:
   - rm .travis.yml
+  - rm README.md
 deploy:
   on:
     branch: master
