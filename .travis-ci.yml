@@ -1,0 +1,19 @@
+language: python
+python:
+  - "3.5"
+cache: pip
+install:
+  - pip install awscli
+script:
+  - rm .travis-ci.yml
+deploy:
+  on:
+    branch: master
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: unavailable.wm.edu
+  skip_cleanup: true
+  cache_control: "max-age=21600"
+after_deploy:
+  - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
